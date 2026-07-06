@@ -65,6 +65,12 @@ main {
 
 .panel h2 {
   margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.field-static {
+  margin: 0 0 1.15rem;
+  color: var(--color-muted);
 }
 
 .field {

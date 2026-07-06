@@ -4,11 +4,14 @@
 import { bepaalBrutoUurloon, vergelijkUurlonen } from "./calculations.js";
 
 // Om een nieuwe cao toe te voegen: zet het JSON-bestand in data/ (zie
-// data/README.md voor de structuur) en voeg hier een regel toe.
+// data/README.md voor de structuur) en voeg hier een regel toe. Cao A staat
+// altijd vast op CAO_A_ID; paneel B kiest uit alle overige cao's.
 const CAO_BESTANDEN = [
   { id: "bedrijfsverzorgingsdiensten", bestand: "data/bedrijfsverzorgingsdiensten.json" },
   { id: "hoveniersbedrijf", bestand: "data/hoveniersbedrijf.json" },
 ];
+
+const CAO_A_ID = "bedrijfsverzorgingsdiensten";
 
 const geldFormatter = new Intl.NumberFormat("nl-NL", {
   style: "currency",
@@ -64,10 +67,16 @@ function formatPeriodeLabel(periode) {
 
 // Vertegenwoordigt één paneel (Cao A of Cao B): houdt de dropdown-selectie
 // bij, laadt de bijbehorende data en toont het berekende resultaat.
+//
+// Paneel A staat vast op één cao (opties.vastCaoId): er is geen cao-dropdown
+// en de naam wordt alleen getoond. Paneel B kiest uit alle cao's behalve
+// opties.uitgeslotenCaoIds.
 class CaoPaneel {
-  constructor(prefix, onChange) {
+  constructor(prefix, onChange, opties = {}) {
     this.prefix = prefix;
     this.onChange = onChange;
+    this.vastCaoId = opties.vastCaoId ?? null;
+    this.uitgeslotenCaoIds = opties.uitgeslotenCaoIds ?? [];
 
     this.caoSelect = document.getElementById(`${prefix}-cao`);
     this.periodeSelect = document.getElementById(`${prefix}-periode`);
@@ -75,6 +84,7 @@ class CaoPaneel {
     this.tredeSelect = document.getElementById(`${prefix}-trede`);
 
     const panel = document.querySelector(`[data-panel="${prefix}"]`);
+    this.caoNaamEl = panel.querySelector('[data-field="caoNaam"]');
     this.loonEl = panel.querySelector('[data-field="loon"]');
     this.urenEl = panel.querySelector('[data-field="uren"]');
     this.uurloonEl = panel.querySelector('[data-field="uurloon"]');
@@ -83,32 +93,39 @@ class CaoPaneel {
     this.huidigeCaoData = null;
     this.huidigeBerekening = null;
 
-    this.caoSelect.addEventListener("change", () => this.opCaoGewijzigd());
+    if (this.caoSelect) {
+      this.caoSelect.addEventListener("change", () => this.laadEnZetCao(this.caoSelect.value));
+    }
     this.periodeSelect.addEventListener("change", () => this.opPeriodeGewijzigd());
     this.schaalSelect.addEventListener("change", () => this.opSchaalGewijzigd());
     this.tredeSelect.addEventListener("change", () => this.werkResultaatBij());
   }
 
-  async init(standaardCaoId) {
-    vulSelect(this.caoSelect, CAO_BESTANDEN, {
+  async init() {
+    if (this.vastCaoId) {
+      await this.laadEnZetCao(this.vastCaoId);
+      return;
+    }
+
+    const opties = CAO_BESTANDEN.filter((c) => !this.uitgeslotenCaoIds.includes(c.id));
+    vulSelect(this.caoSelect, opties, {
       value: (c) => c.id,
       label: (c) => c.id,
     });
-    if (standaardCaoId) {
-      this.caoSelect.value = standaardCaoId;
-    }
-    await this.opCaoGewijzigd();
-  }
-
-  async opCaoGewijzigd() {
-    const caoId = this.caoSelect.value;
-    this.huidigeCaoData = await laadCaoData(caoId);
-
-    // De dropdown toonde tot nu toe de technische id; zet nu voor alle
+    // De dropdown toont tot nu toe de technische id; zet nu voor alle
     // opties het leesbare label.
     for (const optie of this.caoSelect.options) {
       const data = await laadCaoData(optie.value);
       optie.textContent = data.caoNaam;
+    }
+
+    await this.laadEnZetCao(this.caoSelect.value);
+  }
+
+  async laadEnZetCao(caoId) {
+    this.huidigeCaoData = await laadCaoData(caoId);
+    if (this.caoNaamEl) {
+      this.caoNaamEl.textContent = this.huidigeCaoData.caoNaam;
     }
 
     const periodes = periodesGesorteerdOpRecent(this.huidigeCaoData.periodes);
@@ -237,14 +254,11 @@ async function init() {
   let paneelB;
   const onChange = () => werkVergelijkingBij(paneelA, paneelB);
 
-  paneelA = new CaoPaneel("a", onChange);
-  paneelB = new CaoPaneel("b", onChange);
+  paneelA = new CaoPaneel("a", onChange, { vastCaoId: CAO_A_ID });
+  paneelB = new CaoPaneel("b", onChange, { uitgeslotenCaoIds: [CAO_A_ID] });
 
   await paneelA.init();
-  // Standaard Cao B op de tweede beschikbare cao zetten, zodat de twee
-  // panelen niet identiek starten.
-  const standaardCaoB = CAO_BESTANDEN.length > 1 ? CAO_BESTANDEN[1].id : undefined;
-  await paneelB.init(standaardCaoB);
+  await paneelB.init();
 }
 
 init();
