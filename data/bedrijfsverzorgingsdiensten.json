@@ -3,32 +3,2020 @@
   "caoNaam": "Cao Bedrijfsverzorgingsdiensten",
   "periodes": [
     {
-      "ingangsdatum": "2024-01-01",
-      "einddatum": "2024-12-31",
-      "urenPerWeekVoltijd": 0,
+      "ingangsdatum": "2026-01-01",
+      "einddatum": "2099-12-31",
+      "urenPerWeekVoltijd": 37.5,
       "vakantiedagenPerJaar": 0,
       "feestdagenPerJaar": 0,
-      "vakantiegeldPercentage": 0.00,
-      "eindejaarsuitkeringPercentage": 0.00,
-      "keuzebudgetPercentage": 0.00,
+      "vakantiegeldPercentage": 0.0,
+      "eindejaarsuitkeringPercentage": 0.0,
+      "keuzebudgetPercentage": 0.0,
       "leeftijdsdagen": [
-        { "vanafLeeftijd": 0, "extraDagenPerJaar": 0 }
+        {
+          "vanafLeeftijd": 0,
+          "extraDagenPerJaar": 0
+        }
       ],
       "salaristabel": [
         {
           "schaal": "1",
           "treden": [
-            { "trede": 0, "brutoMaandloon": 0.00 },
-            { "trede": 1, "brutoMaandloon": 0.00 },
-            { "trede": 2, "brutoMaandloon": 0.00 }
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 8.94,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 1520.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 1450.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1341.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 11.18,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 1901.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 1813.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1677.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 13.41,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2281.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2174.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2012.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 14.9,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2534.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2416.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2235.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 14.9,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2534.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2416.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2235.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 15.15,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2577.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2457.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2273.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 15.52,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2640.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2517.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2328.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 15.9,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2704.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2578.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2385.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 16.29,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2771.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2641.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2444.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 16.69,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2839.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2706.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2504.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
           ]
         },
         {
           "schaal": "2",
           "treden": [
-            { "trede": 0, "brutoMaandloon": 0.00 },
-            { "trede": 1, "brutoMaandloon": 0.00 },
-            { "trede": 2, "brutoMaandloon": 0.00 }
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 9.26,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 1575.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 1502.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1389.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 11.58,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 1969.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 1878.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1737.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 13.9,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2364.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2254.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2085.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 15.44,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2626.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2504.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2316.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 15.85,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2696.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2570.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2378.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 16.29,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2771.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2641.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2444.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 16.72,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2844.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2711.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2508.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 17.17,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2920.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2784.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2576.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 17.64,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3000.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2860.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2646.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 18.11,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3080.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2937.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2717.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "3",
+          "treden": [
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 10.39,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 1767.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 1685.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1559.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 12.99,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2209.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2106.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1949.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 15.59,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2651.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2528.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2339.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 17.32,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2946.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2809.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2598.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 17.7,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3010.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2870.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2655.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 18.08,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3075.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2932.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2712.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 18.48,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3143.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2997.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2772.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 18.88,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3211.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3061.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2832.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 19.29,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3281.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3128.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2894.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 19.72,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3354.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3198.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2958.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "4",
+          "treden": [
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 11.12,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 1891.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 1803.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1668.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 13.9,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2364.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2254.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2085.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 16.69,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2839.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2706.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2504.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 18.54,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3153.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3006.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2781.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 18.86,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3208.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3058.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2829.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 19.19,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3264.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3112.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2879.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 19.54,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3323.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3168.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2931.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 19.89,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3383.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3225.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2984.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 20.26,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3446.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3285.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3039.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 20.63,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3509.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3345.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3095.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 21.01,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3573.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3407.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3152.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "5",
+          "treden": [
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 11.65,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 1981.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 1889.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1748.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 14.57,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2478.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2363.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2186.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 17.48,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2973.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2834.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2622.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 19.42,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3303.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3149.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2913.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 19.78,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3364.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3207.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2967.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 20.16,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3429.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3269.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3024.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 20.54,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3493.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3331.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3081.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 20.95,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3563.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3397.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3143.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 21.35,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3631.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3462.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3203.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 21.74,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3697.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3525.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3261.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 22.17,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3771.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3595.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3326.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "6",
+          "treden": [
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 12.37,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2104.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2006.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 1856.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 15.46,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 2629.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 2507.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2319.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 18.56,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3157.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3010.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2784.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 20.62,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3507.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3344.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3093.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 21.01,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3573.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3407.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3152.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 21.41,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3641.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3472.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3212.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 21.84,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3714.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3541.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3276.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 22.26,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3786.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3610.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3339.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 22.69,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3859.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3679.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3404.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 23.14,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 3936.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3752.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3471.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 23.58,
+              "referentiebedragen": [
+                {
+                  "label": "categorie A (per 4 weken)",
+                  "bedrag": 4010.0,
+                  "uren": 170.077
+                },
+                {
+                  "label": "categorie B (per 4 weken)",
+                  "bedrag": 3824.0,
+                  "uren": 162.154
+                },
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3537.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "7",
+          "treden": [
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 13.51,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2027.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 16.89,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2534.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 20.27,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3041.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 22.52,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3378.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 22.96,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3444.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 23.42,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3513.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 23.9,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3585.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 24.36,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3654.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 24.85,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3728.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 25.35,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3803.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 25.86,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3879.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 26.37,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3956.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "8",
+          "treden": [
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 14.79,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2219.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 18.48,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2772.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 22.18,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3327.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 24.64,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3696.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 25.16,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3774.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 25.7,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3855.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 26.23,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3935.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 26.79,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4019.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 27.35,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4103.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 27.92,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4188.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 28.51,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4277.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 29.11,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4367.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 29.73,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4460.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "9",
+          "treden": [
+            {
+              "trede": -3,
+              "label": "Aanloop -3",
+              "brutoUurloon": 16.34,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 2451.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -2,
+              "label": "Aanloop -2",
+              "brutoUurloon": 20.43,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3065.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": -1,
+              "label": "Aanloop -1",
+              "brutoUurloon": 24.52,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 3678.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 0,
+              "label": "Trede 0",
+              "brutoUurloon": 27.24,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4086.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 27.9,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4185.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 28.57,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4286.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 29.26,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4389.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 29.96,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4494.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 30.69,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4604.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 31.42,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4713.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 32.18,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4827.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 32.97,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 4946.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 33.76,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 5064.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            },
+            {
+              "trede": 10,
+              "label": "Trede 10",
+              "brutoUurloon": 34.56,
+              "referentiebedragen": [
+                {
+                  "label": "categorie C (per 4 weken)",
+                  "bedrag": 5184.0,
+                  "uren": 150.0,
+                  "primair": true
+                }
+              ]
+            }
           ]
         }
       ]

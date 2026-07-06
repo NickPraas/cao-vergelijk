@@ -1,7 +1,7 @@
 // UI-laag voor het cao-uurloonvergelijk. Alle rekenwerk staat in
 // calculations.js — dit bestand vult alleen dropdowns en toont resultaten.
 
-import { berekenKaalBrutoUurloon, vergelijkUurlonen } from "./calculations.js";
+import { bepaalBrutoUurloon, vergelijkUurlonen } from "./calculations.js";
 
 // Om een nieuwe cao toe te voegen: zet het JSON-bestand in data/ (zie
 // data/README.md voor de structuur) en voeg hier een regel toe.
@@ -75,8 +75,8 @@ class CaoPaneel {
     this.tredeSelect = document.getElementById(`${prefix}-trede`);
 
     const panel = document.querySelector(`[data-panel="${prefix}"]`);
-    this.maandloonEl = panel.querySelector('[data-field="maandloon"]');
-    this.urenPerWeekEl = panel.querySelector('[data-field="urenPerWeek"]');
+    this.loonEl = panel.querySelector('[data-field="loon"]');
+    this.urenEl = panel.querySelector('[data-field="uren"]');
     this.uurloonEl = panel.querySelector('[data-field="uurloon"]');
     this.formuleEl = panel.querySelector('[data-field="formule"]');
 
@@ -143,7 +143,7 @@ class CaoPaneel {
     const schaal = this.huidigeSchaal();
     vulSelect(this.tredeSelect, schaal.treden, {
       value: (t) => String(t.trede),
-      label: (t) => `Trede ${t.trede}`,
+      label: (t) => t.label,
     });
     this.werkResultaatBij();
   }
@@ -153,27 +153,61 @@ class CaoPaneel {
     const schaal = this.huidigeSchaal();
     const trede = schaal.treden.find((t) => String(t.trede) === this.tredeSelect.value);
 
-    const { uurloon, urenPerMaand } = berekenKaalBrutoUurloon(
-      trede.brutoMaandloon,
-      periode.urenPerWeekVoltijd
-    );
+    const resultaat = bepaalBrutoUurloon(trede, periode);
+    this.uurloonEl.textContent = uurloonFormatter.format(resultaat.uurloon);
 
-    this.maandloonEl.textContent = geldFormatter.format(trede.brutoMaandloon);
-    this.urenPerWeekEl.textContent = `${periode.urenPerWeekVoltijd} uur`;
-    this.uurloonEl.textContent = uurloonFormatter.format(uurloon);
-    this.formuleEl.textContent =
-      `${geldFormatter.format(trede.brutoMaandloon)} / ` +
-      `((${periode.urenPerWeekVoltijd} uur x 52) / 12 = ${urenPerMaand.toFixed(2)} uur/maand) ` +
-      `= ${uurloonFormatter.format(uurloon)} per uur`;
+    if (resultaat.bron === "cao-tabel") {
+      this.toonCaoTabelResultaat(periode, schaal, trede, resultaat);
+    } else {
+      this.toonBerekendResultaat(periode, trede, resultaat);
+    }
 
     this.huidigeBerekening = {
       caoNaam: this.huidigeCaoData.caoNaam,
       schaal: schaal.schaal,
-      trede: trede.trede,
-      uurloon,
+      trede: trede.label,
+      uurloon: resultaat.uurloon,
     };
 
     this.onChange();
+  }
+
+  // Cao's die per maand uitbetalen: uurloon wordt hier berekend uit het
+  // bruto maandloon en de voltijd-uren per week.
+  toonBerekendResultaat(periode, trede, resultaat) {
+    this.loonEl.textContent = `${geldFormatter.format(trede.brutoMaandloon)} per maand`;
+    this.urenEl.textContent = `${periode.urenPerWeekVoltijd} uur per week`;
+    this.formuleEl.textContent =
+      `${geldFormatter.format(trede.brutoMaandloon)} / ` +
+      `((${periode.urenPerWeekVoltijd} uur x 52) / 12 = ${resultaat.urenPerMaand.toFixed(2)} uur/maand) ` +
+      `= ${uurloonFormatter.format(resultaat.uurloon)} per uur`;
+  }
+
+  // Cao's die het bruto uurloon al rechtstreeks in de tabel zetten (in
+  // plaats van een maandloon waaruit wij het uurloon berekenen): het
+  // uurloon wordt hier niet berekend, alleen overgenomen en toegelicht aan
+  // de hand van de referentiebedragen (bijv. loon per week/4 weken, of
+  // meerdere arbeidstijd-categorieën) die de cao er zelf bij vermeldt.
+  toonCaoTabelResultaat(periode, schaal, trede, resultaat) {
+    const referenties = trede.referentiebedragen ?? [];
+
+    if (trede.brutoPerMaand != null) {
+      this.loonEl.textContent = `${geldFormatter.format(trede.brutoPerMaand)} per maand`;
+      this.urenEl.textContent = `${periode.urenPerWeekVoltijd} uur per week`;
+    } else {
+      const primaire = referenties.find((r) => r.primair) ?? referenties[0];
+      this.loonEl.textContent = primaire ? `${geldFormatter.format(primaire.bedrag)} (${primaire.label})` : "—";
+      this.urenEl.textContent = primaire ? `${primaire.uren} uur (${primaire.label})` : "—";
+    }
+
+    const controleRegels = referenties
+      .map((r) => `${geldFormatter.format(r.bedrag)} / ${r.uren} uur (${r.label}) = ${uurloonFormatter.format(r.bedrag / r.uren)}`)
+      .join("; ");
+
+    this.formuleEl.textContent =
+      `Bruto uurloon rechtstreeks uit de cao-tabel (schaal ${schaal.schaal}, ${trede.label}): ` +
+      `${uurloonFormatter.format(resultaat.uurloon)} per uur.` +
+      (controleRegels ? ` Ter controle: ${controleRegels}.` : "");
   }
 }
 

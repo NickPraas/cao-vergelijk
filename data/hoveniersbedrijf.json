@@ -3,32 +3,1057 @@
   "caoNaam": "Cao Hoveniersbedrijf",
   "periodes": [
     {
-      "ingangsdatum": "2024-01-01",
-      "einddatum": "2024-12-31",
-      "urenPerWeekVoltijd": 0,
+      "ingangsdatum": "2026-01-01",
+      "einddatum": "2099-12-31",
+      "urenPerWeekVoltijd": 37,
       "vakantiedagenPerJaar": 0,
       "feestdagenPerJaar": 0,
-      "vakantiegeldPercentage": 0.00,
-      "eindejaarsuitkeringPercentage": 0.00,
-      "keuzebudgetPercentage": 0.00,
+      "vakantiegeldPercentage": 0.0,
+      "eindejaarsuitkeringPercentage": 0.0,
+      "keuzebudgetPercentage": 0.0,
       "leeftijdsdagen": [
-        { "vanafLeeftijd": 0, "extraDagenPerJaar": 0 }
+        {
+          "vanafLeeftijd": 0,
+          "extraDagenPerJaar": 0
+        }
       ],
       "salaristabel": [
         {
-          "schaal": "A",
+          "schaal": "I",
           "treden": [
-            { "trede": 0, "brutoMaandloon": 0.00 },
-            { "trede": 1, "brutoMaandloon": 0.00 },
-            { "trede": 2, "brutoMaandloon": 0.00 }
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 15.24,
+              "brutoPerMaand": 2451.1,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 563.88,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2255.52,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 15.52,
+              "brutoPerMaand": 2496.13,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 574.24,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2296.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 15.81,
+              "brutoPerMaand": 2542.78,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 584.97,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2339.88,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 15.97,
+              "brutoPerMaand": 2568.51,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 590.89,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2363.56,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 16.27,
+              "brutoPerMaand": 2616.76,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 601.99,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2407.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 16.57,
+              "brutoPerMaand": 2665.01,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 613.09,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2452.36,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 16.88,
+              "brutoPerMaand": 2714.87,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 624.56,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2498.24,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 17.2,
+              "brutoPerMaand": 2766.33,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 636.4,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2545.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 17.52,
+              "brutoPerMaand": 2817.8,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 648.24,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2592.96,
+                  "uren": 148
+                }
+              ]
+            }
           ]
         },
         {
-          "schaal": "B",
+          "schaal": "II",
           "treden": [
-            { "trede": 0, "brutoMaandloon": 0.00 },
-            { "trede": 1, "brutoMaandloon": 0.00 },
-            { "trede": 2, "brutoMaandloon": 0.00 }
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 16.27,
+              "brutoPerMaand": 2616.76,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 601.99,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2407.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 16.57,
+              "brutoPerMaand": 2665.01,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 613.09,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2452.36,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 16.88,
+              "brutoPerMaand": 2714.87,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 624.56,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2498.24,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 17.2,
+              "brutoPerMaand": 2766.33,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 636.4,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2545.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 17.52,
+              "brutoPerMaand": 2817.8,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 648.24,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2592.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 17.85,
+              "brutoPerMaand": 2870.88,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 660.45,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2641.8,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 18.18,
+              "brutoPerMaand": 2923.95,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 672.66,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2690.64,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 18.52,
+              "brutoPerMaand": 2978.63,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 685.24,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2740.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 18.87,
+              "brutoPerMaand": 3034.93,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 698.19,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2792.76,
+                  "uren": 148
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "III",
+          "treden": [
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 17.52,
+              "brutoPerMaand": 2817.8,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 648.24,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2592.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 17.85,
+              "brutoPerMaand": 2870.88,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 660.45,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2641.8,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 18.18,
+              "brutoPerMaand": 2923.95,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 672.66,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2690.64,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 18.52,
+              "brutoPerMaand": 2978.63,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 685.24,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2740.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 18.87,
+              "brutoPerMaand": 3034.93,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 698.19,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2792.76,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 19.22,
+              "brutoPerMaand": 3091.22,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 711.14,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2844.56,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 19.58,
+              "brutoPerMaand": 3149.12,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 724.46,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2897.84,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 19.95,
+              "brutoPerMaand": 3208.63,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 738.15,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2952.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 20.32,
+              "brutoPerMaand": 3268.13,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 751.84,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3007.36,
+                  "uren": 148
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "IV",
+          "treden": [
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 18.52,
+              "brutoPerMaand": 2978.63,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 685.24,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2740.96,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 18.87,
+              "brutoPerMaand": 3034.93,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 698.19,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2792.76,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 19.22,
+              "brutoPerMaand": 3091.22,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 711.14,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2844.56,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 19.58,
+              "brutoPerMaand": 3149.12,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 724.46,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2897.84,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 19.95,
+              "brutoPerMaand": 3208.63,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 738.15,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2952.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 20.32,
+              "brutoPerMaand": 3268.13,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 751.84,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3007.36,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 20.7,
+              "brutoPerMaand": 3329.25,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 765.9,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3063.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 21.09,
+              "brutoPerMaand": 3391.98,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 780.33,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3121.32,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 21.48,
+              "brutoPerMaand": 3454.7,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 794.76,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3179.04,
+                  "uren": 148
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "V",
+          "treden": [
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 19.58,
+              "brutoPerMaand": 3149.12,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 724.46,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2897.84,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 19.95,
+              "brutoPerMaand": 3208.63,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 738.15,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 2952.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 20.32,
+              "brutoPerMaand": 3268.13,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 751.84,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3007.36,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 20.7,
+              "brutoPerMaand": 3329.25,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 765.9,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3063.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 21.09,
+              "brutoPerMaand": 3391.98,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 780.33,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3121.32,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 21.48,
+              "brutoPerMaand": 3454.7,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 794.76,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3179.04,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 21.88,
+              "brutoPerMaand": 3519.03,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 809.56,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3238.24,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 22.29,
+              "brutoPerMaand": 3584.98,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 824.73,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3298.92,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 22.71,
+              "brutoPerMaand": 3652.53,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 840.27,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3361.08,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 10,
+              "label": "Trede 10",
+              "brutoUurloon": 23.13,
+              "brutoPerMaand": 3720.08,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 855.81,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3423.24,
+                  "uren": 148
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "schaal": "VI",
+          "treden": [
+            {
+              "trede": 1,
+              "label": "Trede 1",
+              "brutoUurloon": 21.09,
+              "brutoPerMaand": 3391.98,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 780.33,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3121.32,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 2,
+              "label": "Trede 2",
+              "brutoUurloon": 21.48,
+              "brutoPerMaand": 3454.7,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 794.76,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3179.04,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 3,
+              "label": "Trede 3",
+              "brutoUurloon": 21.88,
+              "brutoPerMaand": 3519.03,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 809.56,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3238.24,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 4,
+              "label": "Trede 4",
+              "brutoUurloon": 22.29,
+              "brutoPerMaand": 3584.98,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 824.73,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3298.92,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 5,
+              "label": "Trede 5",
+              "brutoUurloon": 22.71,
+              "brutoPerMaand": 3652.53,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 840.27,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3361.08,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 6,
+              "label": "Trede 6",
+              "brutoUurloon": 23.13,
+              "brutoPerMaand": 3720.08,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 855.81,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3423.24,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 7,
+              "label": "Trede 7",
+              "brutoUurloon": 23.56,
+              "brutoPerMaand": 3789.23,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 871.72,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3486.88,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 8,
+              "label": "Trede 8",
+              "brutoUurloon": 24.0,
+              "brutoPerMaand": 3860.0,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 888.0,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3552.0,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 9,
+              "label": "Trede 9",
+              "brutoUurloon": 24.45,
+              "brutoPerMaand": 3932.38,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 904.65,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3618.6,
+                  "uren": 148
+                }
+              ]
+            },
+            {
+              "trede": 10,
+              "label": "Trede 10",
+              "brutoUurloon": 24.91,
+              "brutoPerMaand": 4006.36,
+              "referentiebedragen": [
+                {
+                  "label": "per week",
+                  "bedrag": 921.67,
+                  "uren": 37
+                },
+                {
+                  "label": "per 4 weken",
+                  "bedrag": 3686.68,
+                  "uren": 148
+                }
+              ]
+            }
           ]
         }
       ]

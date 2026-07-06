@@ -61,12 +61,20 @@ leeftijdsdagen, laat dan één object staan met `extraDagenPerJaar: 0`.
 
 ### `salaristabel` (schalen en treden)
 
+De meeste cao's geven gewoon een bruto **maandloon** per schaal/trede — de
+site berekent daaruit zelf het uurloon (zie hierboven). Sommige cao's
+(bijv. Bedrijfsverzorgingsdiensten) betalen per 4 weken uit en zetten het
+bruto uurloon al kant-en-klaar in hun eigen tabel. Beide vormen kunnen
+naast elkaar bestaan, per trede kies je één van de twee.
+
+#### Variant 1: maandloon (site berekent het uurloon)
+
 ```json
 {
   "schaal": "4",
   "treden": [
-    { "trede": 0, "brutoMaandloon": 2450.00 },
-    { "trede": 1, "brutoMaandloon": 2510.00 }
+    { "trede": 0, "label": "Trede 0", "brutoMaandloon": 2450.00 },
+    { "trede": 1, "label": "Trede 1", "brutoMaandloon": 2510.00 }
   ]
 }
 ```
@@ -74,10 +82,63 @@ leeftijdsdagen, laat dan één object staan met `extraDagenPerJaar: 0`.
 - `schaal`: naam/nummer van de loonschaal zoals in de cao-tekst (mag een
   getal of letter zijn, bijv. `"4"` of `"A"`), als tekst.
 - `treden`: lijst van treden binnen die schaal, oplopend.
-  - `trede`: tredenummer zoals in de cao-tabel.
+  - `trede`: tredenummer zoals in de cao-tabel (getal; gebruik negatieve
+    getallen voor aanloopschalen, zie variant 2).
+  - `label`: het label dat in de dropdown op de site verschijnt, bijv.
+    `"Trede 0"` of `"Aanloop -3"`.
   - `brutoMaandloon`: het bruto maandloon bij een voltijd dienstverband
     (`urenPerWeekVoltijd`) voor deze schaal/trede, in euro's met twee
-    decimalen.
+    decimalen. De site berekent hieruit het uurloon met
+    `brutoMaandloon / ((urenPerWeekVoltijd × 52) / 12)`.
+
+#### Variant 2: bruto uurloon rechtstreeks uit de cao-tabel
+
+Gebruik dit wanneer de cao zelf al een kolom met het bruto uurloon geeft, in
+plaats van (alleen) een maandloon. Komt in twee smaken voor, die hetzelfde
+werken:
+
+- **Bedrijfsverzorgingsdiensten**: betaalt per 4 weken uit, in meerdere
+  arbeidstijd-categorieën (A/B/C) die toevallig allemaal tot hetzelfde
+  uurloon herleiden.
+- **Hoveniersbedrijf**: geeft één bedrag per uur/week/4 weken/maand, waarbij
+  week en 4-weken-bedrag exact tot hetzelfde uurloon herleiden.
+
+De site rekent in beide gevallen niets uit: `brutoUurloon` wordt letterlijk
+overgenomen. Per trede:
+
+```json
+{
+  "trede": 0,
+  "label": "Trede 0",
+  "brutoUurloon": 14.90,
+  "brutoPerMaand": 2451.10,
+  "referentiebedragen": [
+    { "label": "per week", "bedrag": 563.88, "uren": 37 },
+    { "label": "per 4 weken", "bedrag": 2255.52, "uren": 148 }
+  ]
+}
+```
+
+- `brutoUurloon`: het bruto uurloon zoals de cao het zelf vermeldt. Zodra
+  dit veld op een trede staat, gebruikt de site dit direct en negeert het
+  `brutoMaandloon`/`urenPerWeekVoltijd`.
+- `brutoPerMaand` *(optioneel)*: als de cao ook een maandbedrag noemt, zet
+  dat hier — de site toont dit dan als hoofdcijfer bij "Loon volgens
+  cao-tabel", samen met `urenPerWeekVoltijd` als "Uren behorend bij dit
+  loon". Laat dit veld weg als de cao geen maandbedrag geeft (zoals
+  Bedrijfsverzorgingsdiensten); de site valt dan terug op de eerste
+  `referentiebedragen`-regel (of de regel met `"primair": true`, zie
+  hieronder) als hoofdcijfer.
+- `referentiebedragen`: lijst van `{ label, bedrag, uren }` — elk zo'n
+  bedrag gedeeld door zijn eigen uren moet weer het `brutoUurloon`
+  opleveren. Dit is puur voor transparantie: de site toont ze op de
+  "Ter controle: ..."-regel zodat je de herleiding 1-op-1 kunt teruglezen
+  naar de officiële cao-tabel. Gebruik hiervoor alleen bedragen waarvan het
+  urenaantal *onafhankelijk* vaststaat (bijv. de vaste voltijd-week, of een
+  door de cao genoemde arbeidstijd-categorie) — geen bedragen waarvan je de
+  uren zelf zou moeten terugrekenen uit het uurloon, want dan bewijst de
+  controle niets. Zet `"primair": true` op één regel om aan te geven welke
+  als hoofdcijfer moet gelden wanneer `brutoPerMaand` ontbreekt.
 
 Voeg voor elke schaal uit de officiële cao-tabel een object toe aan
 `salaristabel`, en voor elke schaal alle bijbehorende treden.
