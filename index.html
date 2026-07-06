@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cao-uurloonvergelijk</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Cao-uurloonvergelijk</h1>
+    <p class="site-subtitle">
+      Vergelijk het kale bruto uurloon van twee cao-salarissen.
+    </p>
+  </header>
+
+  <main>
+    <section class="panels">
+      <article class="panel" data-panel="a" aria-label="Cao A">
+        <h2>Cao A</h2>
+
+        <div class="field">
+          <label for="a-cao">Cao</label>
+          <select id="a-cao"></select>
+        </div>
+
+        <div class="field">
+          <label for="a-periode">Geldigheidsperiode</label>
+          <select id="a-periode"></select>
+        </div>
+
+        <div class="field">
+          <label for="a-schaal">Schaal</label>
+          <select id="a-schaal"></select>
+        </div>
+
+        <div class="field">
+          <label for="a-trede">Trede</label>
+          <select id="a-trede"></select>
+        </div>
+
+        <dl class="result" id="a-result">
+          <dt>Bruto maandloon</dt>
+          <dd data-field="maandloon">—</dd>
+
+          <dt>Uren per week</dt>
+          <dd data-field="urenPerWeek">—</dd>
+
+          <dt>Kaal bruto uurloon</dt>
+          <dd data-field="uurloon" class="result-highlight">—</dd>
+        </dl>
+
+        <p class="formula" data-field="formule"></p>
+      </article>
+
+      <article class="panel" data-panel="b" aria-label="Cao B">
+        <h2>Cao B</h2>
+
+        <div class="field">
+          <label for="b-cao">Cao</label>
+          <select id="b-cao"></select>
+        </div>
+
+        <div class="field">
+          <label for="b-periode">Geldigheidsperiode</label>
+          <select id="b-periode"></select>
+        </div>
+
+        <div class="field">
+          <label for="b-schaal">Schaal</label>
+          <select id="b-schaal"></select>
+        </div>
+
+        <div class="field">
+          <label for="b-trede">Trede</label>
+          <select id="b-trede"></select>
+        </div>
+
+        <dl class="result" id="b-result">
+          <dt>Bruto maandloon</dt>
+          <dd data-field="maandloon">—</dd>
+
+          <dt>Uren per week</dt>
+          <dd data-field="urenPerWeek">—</dd>
+
+          <dt>Kaal bruto uurloon</dt>
+          <dd data-field="uurloon" class="result-highlight">—</dd>
+        </dl>
+
+        <p class="formula" data-field="formule"></p>
+      </article>
+    </section>
+
+    <section class="comparison" aria-label="Vergelijking">
+      <h2>Vergelijking</h2>
+      <p id="comparison-text">Kies bij beide cao's een schaal en trede om te vergelijken.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Berekening: kaal bruto uurloon = bruto maandloon / ((uren per week &times; 52) / 12).
+      Vakantiegeld, feestdagen, vakantiedagen, eindejaarsuitkering, leeftijdsdagen en
+      keuzebudget zijn nog niet in deze berekening verwerkt.
+    </p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

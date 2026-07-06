@@ -1,0 +1,37 @@
+{
+  "caoId": "hoveniersbedrijf",
+  "caoNaam": "Cao Hoveniersbedrijf",
+  "periodes": [
+    {
+      "ingangsdatum": "2024-01-01",
+      "einddatum": "2024-12-31",
+      "urenPerWeekVoltijd": 0,
+      "vakantiedagenPerJaar": 0,
+      "feestdagenPerJaar": 0,
+      "vakantiegeldPercentage": 0.00,
+      "eindejaarsuitkeringPercentage": 0.00,
+      "keuzebudgetPercentage": 0.00,
+      "leeftijdsdagen": [
+        { "vanafLeeftijd": 0, "extraDagenPerJaar": 0 }
+      ],
+      "salaristabel": [
+        {
+          "schaal": "A",
+          "treden": [
+            { "trede": 0, "brutoMaandloon": 0.00 },
+            { "trede": 1, "brutoMaandloon": 0.00 },
+            { "trede": 2, "brutoMaandloon": 0.00 }
+          ]
+        },
+        {
+          "schaal": "B",
+          "treden": [
+            { "trede": 0, "brutoMaandloon": 0.00 },
+            { "trede": 1, "brutoMaandloon": 0.00 },
+            { "trede": 2, "brutoMaandloon": 0.00 }
+          ]
+        }
+      ]
+    }
+  ]
+}
