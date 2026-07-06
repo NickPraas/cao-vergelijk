@@ -39,7 +39,7 @@ eerdere jaren mogelijk.
 | `urenPerWeekVoltijd` | De normale (voltijd) arbeidsduur per week volgens de cao, bijv. `38` of `40`. Dit getal wordt gebruikt om het bruto maandloon om te rekenen naar een bruto uurloon. |
 | `vakantiedagenPerJaar` | Aantal wettelijke + bovenwettelijke vakantiedagen per jaar bij een voltijd dienstverband. **Nog niet gebruikt in de berekening**, alvast opnemen voor een latere uitbreiding. |
 | `feestdagenPerJaar` | Aantal betaalde feestdagen per jaar volgens de cao. **Nog niet gebruikt.** |
-| `vakantiegeldPercentage` | Vakantietoeslag als fractie van het jaarloon, bijv. `0.08` voor 8%. **Nog niet gebruikt.** |
+| `vakantiegeldPercentage` | Vakantietoeslag als fractie van het kale bruto uurloon, bijv. `0.08` voor 8% of `0.0825` voor 8,25%. Wordt gebruikt in de berekening: ontbreekt dit veld of staat het op `0`, dan toont de site de vakantiegeld-regel met € 0,00 en een melding dat de parameter nog niet is ingevuld. |
 | `eindejaarsuitkeringPercentage` | Eindejaarsuitkering/13e maand als fractie van het jaarloon, bijv. `0.05` voor 5%. **Nog niet gebruikt.** |
 | `keuzebudgetPercentage` | Keuzebudget/persoonlijk budget als fractie van het jaarloon (vaak een optelsom van meerdere cao-toeslagen). **Nog niet gebruikt.** |
 | `leeftijdsdagen` | Staffel van extra vrije dagen op basis van leeftijd, zie hieronder. **Nog niet gebruikt.** |

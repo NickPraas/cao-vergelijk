@@ -70,6 +70,58 @@ export function bepaalBrutoUurloon(trede, periode) {
 }
 
 /**
+ * Bereken het vakantiegeld per uur: kaal bruto uurloon x
+ * vakantiegeldpercentage.
+ *
+ * @param {number} kaalUurloon
+ * @param {number|undefined} vakantiegeldPercentage bijv. 0.0825 voor 8,25%
+ * @returns {number}
+ */
+export function berekenVakantiegeldPerUur(kaalUurloon, vakantiegeldPercentage) {
+  return kaalUurloon * (vakantiegeldPercentage ?? 0);
+}
+
+/**
+ * Bouw het totaal bruto uurloon op: het kale bruto uurloon plus alle losse
+ * opbouwstappen. Nu alleen vakantiegeld; latere stappen (vakantiedagen,
+ * feestdagen, eindejaarsuitkering, leeftijdsdagen, keuzebudget) kunnen hier
+ * als extra entries in `stappen` bijkomen, zonder de UI-code aan te passen
+ * (die loopt gewoon over `stappen` heen).
+ *
+ * Ontbreekt een percentage in de cao-data (of staat het op 0), dan komt de
+ * stap er nog steeds in met bedrag 0 en `ontbreekt: true`, zodat de UI een
+ * duidelijke melding kan tonen in plaats van de stap stilzwijgend over te
+ * slaan.
+ *
+ * @param {object} trede
+ * @param {object} periode
+ * @returns {{
+ *   kaalUurloon: number,
+ *   bron: "cao-tabel" | "berekend",
+ *   urenPerMaand?: number,
+ *   stappen: Array<{ label: string, percentage: number, bedrag: number, ontbreekt: boolean }>,
+ *   totaalUurloon: number,
+ * }}
+ */
+export function bouwTotaalBrutoUurloon(trede, periode) {
+  const basis = bepaalBrutoUurloon(trede, periode);
+  const kaalUurloon = basis.uurloon;
+
+  const stappen = [
+    {
+      label: "Vakantiegeld",
+      percentage: periode.vakantiegeldPercentage ?? 0,
+      bedrag: berekenVakantiegeldPerUur(kaalUurloon, periode.vakantiegeldPercentage),
+      ontbreekt: !periode.vakantiegeldPercentage,
+    },
+  ];
+
+  const totaalUurloon = stappen.reduce((som, stap) => som + stap.bedrag, kaalUurloon);
+
+  return { kaalUurloon, bron: basis.bron, urenPerMaand: basis.urenPerMaand, stappen, totaalUurloon };
+}
+
+/**
  * Vergelijk twee bruto uurlonen.
  *
  * @param {number} uurloonA
