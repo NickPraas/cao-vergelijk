@@ -271,8 +271,8 @@ class CaoPaneel {
     if (stap.ontbreekt) {
       return "nog niet ingevuld in de cao-data";
     }
-    if (stap.soort === "vakantiedagen") {
-      return `${stap.dagen} dagen = ${urenFormatter.format(stap.vakantieUren)} vakantie-uren over ${urenFormatter.format(stap.gewerkteUren)} gewerkte uren per jaar`;
+    if (stap.soort === "vrijeDagen") {
+      return `${stap.dagen} dagen = ${urenFormatter.format(stap.vrijeUren)} uur over ${urenFormatter.format(stap.gewerkteUren)} gewerkte uren per jaar`;
     }
     if (stap.soort === "percentage") {
       return `${percentageFormatter.format(stap.percentage * 100)}%`;
