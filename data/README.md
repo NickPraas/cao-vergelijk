@@ -37,7 +37,7 @@ eerdere jaren mogelijk.
 | `ingangsdatum` | Eerste geldigheidsdag van deze periode, formaat `YYYY-MM-DD`. |
 | `einddatum` | Laatste geldigheidsdag van deze periode, formaat `YYYY-MM-DD`. Gebruik een datum ver in de toekomst (bijv. `2099-12-31`) als er nog geen einddatum bekend is. |
 | `urenPerWeekVoltijd` | De normale (voltijd) arbeidsduur per week volgens de cao, bijv. `38` of `40`. Dit getal wordt gebruikt om het bruto maandloon om te rekenen naar een bruto uurloon. |
-| `vakantiedagenPerJaar` | Aantal wettelijke + bovenwettelijke vakantiedagen per jaar bij een voltijd dienstverband. **Nog niet gebruikt in de berekening**, alvast opnemen voor een latere uitbreiding. |
+| `vakantiedagenPerJaar` | Aantal wettelijke + bovenwettelijke vakantiedagen per jaar bij een voltijd dienstverband, bijv. `25`. Wordt gebruikt in de berekening (omgerekend naar vakantie-uren via `urenPerWeekVoltijd / 5`, dus uitgaand van een 5-daagse werkweek). Ontbreekt dit veld of staat het op `0`, dan toont de site de vakantiedagen-regel met € 0,00 en een melding dat de parameter nog niet is ingevuld. |
 | `feestdagenPerJaar` | Aantal betaalde feestdagen per jaar volgens de cao. **Nog niet gebruikt.** |
 | `vakantiegeldPercentage` | Vakantietoeslag als fractie van het kale bruto uurloon, bijv. `0.08` voor 8% of `0.0825` voor 8,25%. Wordt gebruikt in de berekening: ontbreekt dit veld of staat het op `0`, dan toont de site de vakantiegeld-regel met € 0,00 en een melding dat de parameter nog niet is ingevuld. |
 | `eindejaarsuitkeringPercentage` | Eindejaarsuitkering/13e maand als fractie van het jaarloon, bijv. `0.05` voor 5%. **Nog niet gebruikt.** |

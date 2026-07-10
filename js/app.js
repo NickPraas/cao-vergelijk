@@ -30,6 +30,11 @@ const percentageFormatter = new Intl.NumberFormat("nl-NL", {
   maximumFractionDigits: 2,
 });
 
+const urenFormatter = new Intl.NumberFormat("nl-NL", {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
 const caoDataCache = new Map();
 
 async function laadCaoData(caoId) {
@@ -239,16 +244,10 @@ class CaoPaneel {
     const regels = [{ tekst: `Kaal bruto uurloon: ${uurloonFormatter.format(resultaat.kaalUurloon)}` }];
 
     for (const stap of resultaat.stappen) {
-      regels.push(
-        stap.ontbreekt
-          ? {
-              tekst: `${stap.label} (nog niet ingevuld in de cao-data): + ${uurloonFormatter.format(stap.bedrag)}`,
-              waarschuwing: true,
-            }
-          : {
-              tekst: `${stap.label} (${percentageFormatter.format(stap.percentage * 100)}%): + ${uurloonFormatter.format(stap.bedrag)}`,
-            }
-      );
+      regels.push({
+        tekst: `${stap.label} (${this.toelichtingVoorStap(stap)}): + ${uurloonFormatter.format(stap.bedrag)}`,
+        waarschuwing: stap.ontbreekt,
+      });
     }
 
     regels.push({ tekst: `Totaal bruto uurloon: ${uurloonFormatter.format(resultaat.totaalUurloon)}`, totaal: true });
@@ -260,6 +259,22 @@ class CaoPaneel {
       if (regel.totaal) li.classList.add("opbouw-totaal");
       this.opbouwEl.appendChild(li);
     }
+  }
+
+  // Bouwt de toelichtingstekst tussen haakjes voor één opbouwstap. Nieuwe
+  // stapsoorten kunnen hier een eigen tak krijgen; calculations.js levert
+  // alleen de kale getallen aan, deze functie verzorgt de opmaak/tekst.
+  toelichtingVoorStap(stap) {
+    if (stap.ontbreekt) {
+      return "nog niet ingevuld in de cao-data";
+    }
+    if (stap.soort === "vakantiedagen") {
+      return `${stap.dagen} dagen = ${urenFormatter.format(stap.vakantieUren)} vakantie-uren over ${urenFormatter.format(stap.gewerkteUren)} gewerkte uren per jaar`;
+    }
+    if (stap.soort === "percentage") {
+      return `${percentageFormatter.format(stap.percentage * 100)}%`;
+    }
+    return "";
   }
 }
 

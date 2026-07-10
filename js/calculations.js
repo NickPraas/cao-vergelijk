@@ -12,6 +12,10 @@
 const WEKEN_PER_JAAR = 52;
 const MAANDEN_PER_JAAR = 12;
 
+// Aanname voor het omrekenen van vakantiedagen naar vakantie-uren: een
+// voltijd werkweek van vijf dagen.
+const DAGEN_PER_WERKWEEK = 5;
+
 /**
  * Bereken het gemiddeld aantal uren per maand op basis van het aantal
  * contractuele uren per week.
@@ -82,13 +86,42 @@ export function berekenVakantiegeldPerUur(kaalUurloon, vakantiegeldPercentage) {
 }
 
 /**
- * Bouw het totaal bruto uurloon op: het kale bruto uurloon plus alle losse
- * opbouwstappen. Nu alleen vakantiegeld; latere stappen (vakantiedagen,
- * feestdagen, eindejaarsuitkering, leeftijdsdagen, keuzebudget) kunnen hier
- * als extra entries in `stappen` bijkomen, zonder de UI-code aan te passen
- * (die loopt gewoon over `stappen` heen).
+ * Bereken de meerkosten van vakantiedagen per uur. Vakantiedagen worden
+ * doorbetaald maar niet gewerkt; die kosten worden hier omgeslagen over de
+ * uren die wél daadwerkelijk gewerkt worden — dezelfde methode die
+ * uitzend-/detacheringsbureaus gebruiken om een kostprijs per gewerkt uur
+ * te bepalen.
  *
- * Ontbreekt een percentage in de cao-data (of staat het op 0), dan komt de
+ * Formule: uurloon x vakantie-uren / gewerkte uren, met
+ *   vakantie-uren  = vakantiedagenPerJaar x (urenPerWeekVoltijd / 5)
+ *   jaaruren       = urenPerWeekVoltijd x 52
+ *   gewerkte uren  = jaaruren - vakantie-uren
+ *
+ * @param {number} uurloon het uurloon waarover de opslag wordt berekend
+ * @param {number|undefined} vakantiedagenPerJaar
+ * @param {number} urenPerWeekVoltijd
+ * @returns {{ bedrag: number, vakantieUren: number, gewerkteUren: number }}
+ */
+export function berekenVakantiedagenPerUur(uurloon, vakantiedagenPerJaar, urenPerWeekVoltijd) {
+  const vakantieUren = (vakantiedagenPerJaar ?? 0) * (urenPerWeekVoltijd / DAGEN_PER_WERKWEEK);
+  const jaaruren = urenPerWeekVoltijd * WEKEN_PER_JAAR;
+  const gewerkteUren = jaaruren - vakantieUren;
+  const bedrag = gewerkteUren > 0 ? uurloon * (vakantieUren / gewerkteUren) : 0;
+  return { bedrag, vakantieUren, gewerkteUren };
+}
+
+/**
+ * Bouw het totaal bruto uurloon op: het kale bruto uurloon plus alle losse
+ * opbouwstappen, waarbij elke volgende stap doorwerkt op het lopende
+ * subtotaal (compounding) in plaats van steeds op het kale uurloon. Nu:
+ * eerst vakantiedagen, dan vakantiegeld daarover (je blijft vakantiegeld
+ * opbouwen tijdens vakantiedagen, dus die kosten moeten ook mee in de
+ * grondslag). Latere stappen (feestdagen, eindejaarsuitkering,
+ * leeftijdsdagen, keuzebudget) kunnen hier als extra entries in `stappen`
+ * bijkomen, zonder de UI-code aan te passen (die loopt gewoon over
+ * `stappen` heen).
+ *
+ * Ontbreekt een parameter in de cao-data (of staat die op 0), dan komt de
  * stap er nog steeds in met bedrag 0 en `ontbreekt: true`, zodat de UI een
  * duidelijke melding kan tonen in plaats van de stap stilzwijgend over te
  * slaan.
@@ -99,26 +132,39 @@ export function berekenVakantiegeldPerUur(kaalUurloon, vakantiegeldPercentage) {
  *   kaalUurloon: number,
  *   bron: "cao-tabel" | "berekend",
  *   urenPerMaand?: number,
- *   stappen: Array<{ label: string, percentage: number, bedrag: number, ontbreekt: boolean }>,
+ *   stappen: Array<object>,
  *   totaalUurloon: number,
  * }}
  */
 export function bouwTotaalBrutoUurloon(trede, periode) {
   const basis = bepaalBrutoUurloon(trede, periode);
   const kaalUurloon = basis.uurloon;
+  const stappen = [];
+  let subtotaal = kaalUurloon;
 
-  const stappen = [
-    {
-      label: "Vakantiegeld",
-      percentage: periode.vakantiegeldPercentage ?? 0,
-      bedrag: berekenVakantiegeldPerUur(kaalUurloon, periode.vakantiegeldPercentage),
-      ontbreekt: !periode.vakantiegeldPercentage,
-    },
-  ];
+  const vakantiedagen = berekenVakantiedagenPerUur(subtotaal, periode.vakantiedagenPerJaar, periode.urenPerWeekVoltijd);
+  stappen.push({
+    label: "Vakantiedagen",
+    soort: "vakantiedagen",
+    dagen: periode.vakantiedagenPerJaar ?? 0,
+    vakantieUren: vakantiedagen.vakantieUren,
+    gewerkteUren: vakantiedagen.gewerkteUren,
+    bedrag: vakantiedagen.bedrag,
+    ontbreekt: !periode.vakantiedagenPerJaar,
+  });
+  subtotaal += vakantiedagen.bedrag;
 
-  const totaalUurloon = stappen.reduce((som, stap) => som + stap.bedrag, kaalUurloon);
+  const vakantiegeldBedrag = berekenVakantiegeldPerUur(subtotaal, periode.vakantiegeldPercentage);
+  stappen.push({
+    label: "Vakantiegeld",
+    soort: "percentage",
+    percentage: periode.vakantiegeldPercentage ?? 0,
+    bedrag: vakantiegeldBedrag,
+    ontbreekt: !periode.vakantiegeldPercentage,
+  });
+  subtotaal += vakantiegeldBedrag;
 
-  return { kaalUurloon, bron: basis.bron, urenPerMaand: basis.urenPerMaand, stappen, totaalUurloon };
+  return { kaalUurloon, bron: basis.bron, urenPerMaand: basis.urenPerMaand, stappen, totaalUurloon: subtotaal };
 }
 
 /**
