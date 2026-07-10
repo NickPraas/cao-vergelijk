@@ -82,6 +82,7 @@ class CaoPaneel {
     this.onChange = onChange;
     this.vastCaoId = opties.vastCaoId ?? null;
     this.uitgeslotenCaoIds = opties.uitgeslotenCaoIds ?? [];
+    this.leeftijdOphalen = opties.leeftijdOphalen ?? (() => null);
 
     this.caoSelect = document.getElementById(`${prefix}-cao`);
     this.periodeSelect = document.getElementById(`${prefix}-periode`);
@@ -178,7 +179,7 @@ class CaoPaneel {
     const schaal = this.huidigeSchaal();
     const trede = schaal.treden.find((t) => String(t.trede) === this.tredeSelect.value);
 
-    const resultaat = bouwTotaalBrutoUurloon(trede, periode);
+    const resultaat = bouwTotaalBrutoUurloon(trede, periode, this.leeftijdOphalen());
 
     if (resultaat.bron === "cao-tabel") {
       this.toonCaoTabelResultaat(periode, schaal, trede, resultaat);
@@ -268,10 +269,13 @@ class CaoPaneel {
   // stapsoorten kunnen hier een eigen tak krijgen; calculations.js levert
   // alleen de kale getallen aan, deze functie verzorgt de opmaak/tekst.
   toelichtingVoorStap(stap) {
+    if (stap.soort === "leeftijdsdagen" && stap.ontbreekt) {
+      return "vul de leeftijd van de medewerker in";
+    }
     if (stap.ontbreekt) {
       return "nog niet ingevuld in de cao-data";
     }
-    if (stap.soort === "vrijeDagen") {
+    if (stap.soort === "vrijeDagen" || stap.soort === "leeftijdsdagen") {
       return `${stap.dagen} dagen = ${urenFormatter.format(stap.vrijeUren)} uur over ${urenFormatter.format(stap.gewerkteUren)} gewerkte uren per jaar`;
     }
     if (stap.soort === "percentage") {
@@ -302,16 +306,29 @@ function werkVergelijkingBij(paneelA, paneelB) {
     `oftewel <span class="${klasse}">${percentageFormatter.format(Math.abs(verschilPercentage))}% ${richting}</span>.`;
 }
 
+// Leeftijd van de medewerker, ingevuld in het leeftijdblok boven de
+// vergelijking en gedeeld door beide panelen (voor de leeftijdsdagen-staffel).
+let huidigeLeeftijd = null;
+
 async function init() {
   let paneelA;
   let paneelB;
   const onChange = () => werkVergelijkingBij(paneelA, paneelB);
+  const leeftijdOphalen = () => huidigeLeeftijd;
 
-  paneelA = new CaoPaneel("a", onChange, { vastCaoId: CAO_A_ID });
-  paneelB = new CaoPaneel("b", onChange, { uitgeslotenCaoIds: [CAO_A_ID] });
+  paneelA = new CaoPaneel("a", onChange, { vastCaoId: CAO_A_ID, leeftijdOphalen });
+  paneelB = new CaoPaneel("b", onChange, { uitgeslotenCaoIds: [CAO_A_ID], leeftijdOphalen });
 
   await paneelA.init();
   await paneelB.init();
+
+  const leeftijdInput = document.getElementById("leeftijd-medewerker");
+  leeftijdInput.addEventListener("input", () => {
+    const waarde = parseInt(leeftijdInput.value, 10);
+    huidigeLeeftijd = Number.isNaN(waarde) ? null : waarde;
+    paneelA.werkResultaatBij();
+    paneelB.werkResultaatBij();
+  });
 }
 
 init();

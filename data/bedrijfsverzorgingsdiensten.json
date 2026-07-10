@@ -12,10 +12,12 @@
       "eindejaarsuitkeringPercentage": 0.0,
       "keuzebudgetPercentage": 0.0,
       "leeftijdsdagen": [
-        {
-          "vanafLeeftijd": 0,
-          "extraDagenPerJaar": 0
-        }
+        { "vanafLeeftijd": 0, "extraDagenPerJaar": 0 },
+        { "vanafLeeftijd": 50, "extraDagenPerJaar": 3 },
+        { "vanafLeeftijd": 55, "extraDagenPerJaar": 4 },
+        { "vanafLeeftijd": 60, "extraDagenPerJaar": 5 },
+        { "vanafLeeftijd": 63, "extraDagenPerJaar": 6 },
+        { "vanafLeeftijd": 64, "extraDagenPerJaar": 7 }
       ],
       "salaristabel": [
         {

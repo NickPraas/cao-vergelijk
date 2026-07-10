@@ -42,7 +42,7 @@ eerdere jaren mogelijk.
 | `vakantiegeldPercentage` | Vakantietoeslag als fractie van het kale bruto uurloon, bijv. `0.08` voor 8% of `0.0825` voor 8,25%. Wordt gebruikt in de berekening: ontbreekt dit veld of staat het op `0`, dan toont de site de vakantiegeld-regel met € 0,00 en een melding dat de parameter nog niet is ingevuld. |
 | `eindejaarsuitkeringPercentage` | Eindejaarsuitkering/13e maand als fractie van het jaarloon, bijv. `0.05` voor 5%. **Nog niet gebruikt.** |
 | `keuzebudgetPercentage` | Keuzebudget/persoonlijk budget als fractie van het jaarloon (vaak een optelsom van meerdere cao-toeslagen). **Nog niet gebruikt.** |
-| `leeftijdsdagen` | Staffel van extra vrije dagen op basis van leeftijd, zie hieronder. **Nog niet gebruikt.** |
+| `leeftijdsdagen` | Staffel van extra vrije dagen op basis van leeftijd, zie hieronder. Wordt gebruikt zodra de bezoeker een leeftijd invult in het leeftijdblok boven de vergelijking. |
 | `salaristabel` | Lijst van loonschalen, zie hieronder. |
 
 ### `leeftijdsdagen` (staffel)
@@ -56,8 +56,15 @@ Lijst van objecten, één per drempelleeftijd:
 - `vanafLeeftijd`: leeftijd (in jaren) vanaf wanneer de extra dagen gelden.
 - `extraDagenPerJaar`: aantal extra vrije dagen per jaar vanaf die leeftijd.
 
-Voeg voor elke drempel uit de cao een apart object toe. Heeft de cao geen
-leeftijdsdagen, laat dan één object staan met `extraDagenPerJaar: 0`.
+Voeg voor elke drempel uit de cao een apart object toe. Van toepassing is
+steeds de stap met de hoogste `vanafLeeftijd` die de ingevulde leeftijd niet
+overschrijdt (dus geen optelling van meerdere stappen) — bijv. bij
+leeftijd 61 met drempels op 60 en 63 geldt de drempel van 60. Heeft de cao
+geen leeftijdsdagen, laat dan één object staan met `extraDagenPerJaar: 0`;
+de site toont dan geen leeftijdsdagen-regel in de opbouw voor deze cao,
+ongeacht de ingevulde leeftijd. Heeft de cao wél een staffel maar heeft de
+bezoeker nog geen leeftijd ingevuld, dan toont de site de regel met € 0,00
+en een melding om de leeftijd in te vullen.
 
 ### `salaristabel` (schalen en treden)
 

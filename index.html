@@ -15,6 +15,15 @@
   </header>
 
   <main>
+    <section class="leeftijdblok" aria-label="Leeftijd medewerker">
+      <label for="leeftijd-medewerker">Leeftijd van de medewerker</label>
+      <input type="number" id="leeftijd-medewerker" min="0" max="120" step="1" placeholder="bijv. 45" />
+      <p class="leeftijdblok-uitleg">
+        Voor cao's met leeftijdsdagen (extra vrije dagen vanaf een bepaalde leeftijd) geldt deze
+        leeftijd voor beide panelen hieronder.
+      </p>
+    </section>
+
     <section class="panels">
       <article class="panel" data-panel="a" aria-label="Cao A">
         <h2>Cao A</h2>
@@ -101,10 +110,10 @@
       Geeft een cao het bruto uurloon al rechtstreeks in de tabel (bijv. bij uitbetaling
       per 4 weken), dan wordt dat uurloon overgenomen in plaats van herberekend &mdash; zie de
       toelichting onder elk paneel. Totaal bruto uurloon = kaal bruto uurloon, plus de
-      meerkosten van vakantiedagen en feestdagen (omgeslagen over de daadwerkelijk gewerkte
-      uren), plus vakantiegeld daarover &mdash; zie de opbouw onder elk paneel.
-      Eindejaarsuitkering, leeftijdsdagen en keuzebudget zijn nog niet in deze berekening
-      verwerkt.
+      meerkosten van vakantiedagen, feestdagen en (indien van toepassing) leeftijdsdagen
+      (omgeslagen over de daadwerkelijk gewerkte uren), plus vakantiegeld daarover &mdash; zie
+      de opbouw onder elk paneel. Eindejaarsuitkering en keuzebudget zijn nog niet in deze
+      berekening verwerkt.
     </p>
   </footer>
 

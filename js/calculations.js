@@ -86,25 +86,48 @@ export function berekenVakantiegeldPerUur(kaalUurloon, vakantiegeldPercentage) {
 }
 
 /**
- * Bereken de vrije uren (vakantiedagen + feestdagen omgerekend naar uren)
- * en de daaruit volgende gewerkte uren per jaar. Vakantiedagen en
- * feestdagen zijn allebei doorbetaalde, niet-gewerkte dagen en putten dus
- * uit dezelfde pool gewerkte uren — ze delen hier daarom één gezamenlijke
- * noemer, in plaats van elk hun eigen "gewerkte uren" te berekenen alsof de
- * ander niet bestaat (dat zou de meerkosten van allebei te hoog inschatten).
+ * Bepaal het aantal extra leeftijdsdagen per jaar voor een gegeven leeftijd,
+ * op basis van de staffel uit periode.leeftijdsdagen. Elke stap geldt
+ * "vanaf" die leeftijd; van toepassing is de stap met de hoogste
+ * `vanafLeeftijd` die de leeftijd nog niet overschrijdt (dus geen optelling
+ * van meerdere stappen).
+ *
+ * @param {Array<{ vanafLeeftijd: number, extraDagenPerJaar: number }>} leeftijdsdagen
+ * @param {number|null|undefined} leeftijd
+ * @returns {number}
+ */
+export function bepaalLeeftijdsdagen(leeftijdsdagen, leeftijd) {
+  if (!Array.isArray(leeftijdsdagen) || leeftijd == null) {
+    return 0;
+  }
+  const toepasbareStap = leeftijdsdagen
+    .filter((stap) => leeftijd >= stap.vanafLeeftijd)
+    .sort((a, b) => b.vanafLeeftijd - a.vanafLeeftijd)[0];
+  return toepasbareStap ? toepasbareStap.extraDagenPerJaar : 0;
+}
+
+/**
+ * Bereken de vrije uren (vakantiedagen + feestdagen + leeftijdsdagen
+ * omgerekend naar uren) en de daaruit volgende gewerkte uren per jaar. Alle
+ * drie zijn doorbetaalde, niet-gewerkte dagen en putten dus uit dezelfde
+ * pool gewerkte uren — ze delen hier daarom één gezamenlijke noemer, in
+ * plaats van elk hun eigen "gewerkte uren" te berekenen alsof de andere
+ * niet bestaan (dat zou de meerkosten van alle drie te hoog inschatten).
  *
  * @param {number|undefined} vakantiedagenPerJaar
  * @param {number|undefined} feestdagenPerJaar
+ * @param {number} leeftijdsdagenPerJaar
  * @param {number} urenPerWeekVoltijd
- * @returns {{ vakantieUren: number, feestdagUren: number, gewerkteUren: number }}
+ * @returns {{ vakantieUren: number, feestdagUren: number, leeftijdsdagUren: number, gewerkteUren: number }}
  */
-export function berekenGewerkteUrenPerJaar(vakantiedagenPerJaar, feestdagenPerJaar, urenPerWeekVoltijd) {
+export function berekenGewerkteUrenPerJaar(vakantiedagenPerJaar, feestdagenPerJaar, leeftijdsdagenPerJaar, urenPerWeekVoltijd) {
   const urenPerDag = urenPerWeekVoltijd / DAGEN_PER_WERKWEEK;
   const vakantieUren = (vakantiedagenPerJaar ?? 0) * urenPerDag;
   const feestdagUren = (feestdagenPerJaar ?? 0) * urenPerDag;
+  const leeftijdsdagUren = (leeftijdsdagenPerJaar ?? 0) * urenPerDag;
   const jaaruren = urenPerWeekVoltijd * WEKEN_PER_JAAR;
-  const gewerkteUren = jaaruren - vakantieUren - feestdagUren;
-  return { vakantieUren, feestdagUren, gewerkteUren };
+  const gewerkteUren = jaaruren - vakantieUren - feestdagUren - leeftijdsdagUren;
+  return { vakantieUren, feestdagUren, leeftijdsdagUren, gewerkteUren };
 }
 
 /**
@@ -130,21 +153,29 @@ export function berekenOpslagVoorVrijeUren(uurloon, vrijeUren, gewerkteUren) {
  * Bouw het totaal bruto uurloon op: het kale bruto uurloon plus alle losse
  * opbouwstappen, waarbij elke volgende stap doorwerkt op het lopende
  * subtotaal (compounding) in plaats van steeds op het kale uurloon. Nu:
- * eerst vakantiedagen, dan feestdagen (beide delen dezelfde gewerkte-uren-
- * noemer, zie berekenGewerkteUrenPerJaar), dan vakantiegeld over alles
- * samen (je blijft vakantiegeld opbouwen tijdens vakantie- en feestdagen,
- * dus die kosten moeten ook mee in de grondslag). Latere stappen
- * (eindejaarsuitkering, leeftijdsdagen, keuzebudget) kunnen hier als extra
- * entries in `stappen` bijkomen, zonder de UI-code aan te passen (die loopt
- * gewoon over `stappen` heen).
+ * eerst vakantiedagen, dan feestdagen, dan leeftijdsdagen (alle drie delen
+ * dezelfde gewerkte-uren-noemer, zie berekenGewerkteUrenPerJaar), dan
+ * vakantiegeld over alles samen (je blijft vakantiegeld opbouwen tijdens
+ * deze vrije dagen, dus die kosten moeten ook mee in de grondslag). Latere
+ * stappen (eindejaarsuitkering, keuzebudget) kunnen hier als extra entries
+ * in `stappen` bijkomen, zonder de UI-code aan te passen (die loopt gewoon
+ * over `stappen` heen).
  *
- * Ontbreekt een parameter in de cao-data (of staat die op 0), dan komt de
- * stap er nog steeds in met bedrag 0 en `ontbreekt: true`, zodat de UI een
- * duidelijke melding kan tonen in plaats van de stap stilzwijgend over te
- * slaan.
+ * De leeftijdsdagen-stap verschijnt alleen als de cao een echte staffel
+ * heeft (periode.leeftijdsdagen bevat een stap met extraDagenPerJaar > 0);
+ * cao's zonder leeftijdsdagen tonen deze regel dus niet. Is er wel een
+ * staffel maar nog geen `leeftijd` meegegeven, dan komt de stap er met
+ * bedrag 0 en `ontbreekt: true` in, zodat de UI kan vragen om de leeftijd
+ * in te vullen.
+ *
+ * Ontbreekt een andere parameter in de cao-data (of staat die op 0), dan
+ * komt de stap er nog steeds in met bedrag 0 en `ontbreekt: true`, zodat de
+ * UI een duidelijke melding kan tonen in plaats van de stap stilzwijgend
+ * over te slaan.
  *
  * @param {object} trede
  * @param {object} periode
+ * @param {number|null|undefined} leeftijd leeftijd van de medewerker, voor de leeftijdsdagen-staffel
  * @returns {{
  *   kaalUurloon: number,
  *   bron: "cao-tabel" | "berekend",
@@ -153,15 +184,19 @@ export function berekenOpslagVoorVrijeUren(uurloon, vrijeUren, gewerkteUren) {
  *   totaalUurloon: number,
  * }}
  */
-export function bouwTotaalBrutoUurloon(trede, periode) {
+export function bouwTotaalBrutoUurloon(trede, periode, leeftijd) {
   const basis = bepaalBrutoUurloon(trede, periode);
   const kaalUurloon = basis.uurloon;
   const stappen = [];
   let subtotaal = kaalUurloon;
 
-  const { vakantieUren, feestdagUren, gewerkteUren } = berekenGewerkteUrenPerJaar(
+  const leeftijdsdagenPerJaar = bepaalLeeftijdsdagen(periode.leeftijdsdagen, leeftijd);
+  const heeftLeeftijdsstaffel = (periode.leeftijdsdagen ?? []).some((stap) => stap.extraDagenPerJaar > 0);
+
+  const { vakantieUren, feestdagUren, leeftijdsdagUren, gewerkteUren } = berekenGewerkteUrenPerJaar(
     periode.vakantiedagenPerJaar,
     periode.feestdagenPerJaar,
+    leeftijdsdagenPerJaar,
     periode.urenPerWeekVoltijd
   );
 
@@ -188,6 +223,20 @@ export function bouwTotaalBrutoUurloon(trede, periode) {
     ontbreekt: !periode.feestdagenPerJaar,
   });
   subtotaal += feestdagenBedrag;
+
+  if (heeftLeeftijdsstaffel) {
+    const leeftijdsdagenBedrag = berekenOpslagVoorVrijeUren(subtotaal, leeftijdsdagUren, gewerkteUren);
+    stappen.push({
+      label: "Leeftijdsdagen",
+      soort: "leeftijdsdagen",
+      dagen: leeftijdsdagenPerJaar,
+      vrijeUren: leeftijdsdagUren,
+      gewerkteUren,
+      bedrag: leeftijdsdagenBedrag,
+      ontbreekt: leeftijd == null,
+    });
+    subtotaal += leeftijdsdagenBedrag;
+  }
 
   const vakantiegeldBedrag = berekenVakantiegeldPerUur(subtotaal, periode.vakantiegeldPercentage);
   stappen.push({
