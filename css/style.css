@@ -68,11 +68,6 @@ main {
   margin-bottom: 0.25rem;
 }
 
-.field-static {
-  margin: 0 0 1.15rem;
-  color: var(--color-muted);
-}
-
 .field {
   margin-bottom: 0.9rem;
 }
@@ -93,6 +88,13 @@ main {
   font-size: 1rem;
   background: var(--color-surface);
   color: var(--color-text);
+}
+
+.field select:disabled {
+  background: var(--color-bg);
+  color: var(--color-text);
+  opacity: 1;
+  cursor: default;
 }
 
 .result {

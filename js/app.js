@@ -89,7 +89,6 @@ class CaoPaneel {
     this.tredeSelect = document.getElementById(`${prefix}-trede`);
 
     const panel = document.querySelector(`[data-panel="${prefix}"]`);
-    this.caoNaamEl = panel.querySelector('[data-field="caoNaam"]');
     this.loonEl = panel.querySelector('[data-field="loon"]');
     this.urenEl = panel.querySelector('[data-field="uren"]');
     this.formuleEl = panel.querySelector('[data-field="formule"]');
@@ -98,7 +97,7 @@ class CaoPaneel {
     this.huidigeCaoData = null;
     this.huidigeBerekening = null;
 
-    if (this.caoSelect) {
+    if (this.caoSelect && !this.vastCaoId) {
       this.caoSelect.addEventListener("change", () => this.laadEnZetCao(this.caoSelect.value));
     }
     this.periodeSelect.addEventListener("change", () => this.opPeriodeGewijzigd());
@@ -129,8 +128,12 @@ class CaoPaneel {
 
   async laadEnZetCao(caoId) {
     this.huidigeCaoData = await laadCaoData(caoId);
-    if (this.caoNaamEl) {
-      this.caoNaamEl.textContent = this.huidigeCaoData.caoNaam;
+
+    if (this.vastCaoId) {
+      vulSelect(this.caoSelect, [this.huidigeCaoData], {
+        value: () => caoId,
+        label: (data) => data.caoNaam,
+      });
     }
 
     const periodes = periodesGesorteerdOpRecent(this.huidigeCaoData.periodes);
